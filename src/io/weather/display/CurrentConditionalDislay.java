@@ -30,5 +30,5 @@ public class CurrentConditionalDislay implements Observer, DisplayElement{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
