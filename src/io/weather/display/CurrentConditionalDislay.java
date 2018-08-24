@@ -6,7 +6,7 @@ import java.util.Observer;
 import io.weather.WeatherData;
 
 public class CurrentConditionalDislay implements Observer, DisplayElement{
-	Observable observable;
+	private Observable observable;
 	private float temperature;
 	private float humidity;
 	public CurrentConditionalDislay(Observable observable) {
@@ -22,13 +22,14 @@ public class CurrentConditionalDislay implements Observer, DisplayElement{
 			WeatherData weatherData = (WeatherData) o;
 			this.temperature = weatherData.getTemperature();
 			this.humidity = weatherData.getHumidity();
+			display();
 		}
 	}
 	
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Current conditions: " + temperature 
+			+ "F degrees and " + humidity + "% humidity");
 	}
 	
 }

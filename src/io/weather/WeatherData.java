@@ -2,6 +2,9 @@ package io.weather;
 
 import java.util.Observable;
 
+import io.weather.display.CurrentConditionalDislay;
+import io.weather.display.ForecastDisplay;
+
 public class WeatherData extends Observable {
 	private float temperature;
 	private float humidity;
@@ -27,24 +30,22 @@ public class WeatherData extends Observable {
 		return temperature;
 	}
 
-	public void setTemperature(float temperature) {
-		this.temperature = temperature;
-	}
-
 	public float getHumidity() {
 		return humidity;
-	}
-
-	public void setHumidity(float humidity) {
-		this.humidity = humidity;
 	}
 
 	public float getPressure() {
 		return pressure;
 	}
-
-	public void setPressure(float pressure) {
-		this.pressure = pressure;
+	
+	public static void main(String[] args) {
+		WeatherData weatherData = new WeatherData();
+		CurrentConditionalDislay cDislay = new CurrentConditionalDislay(weatherData);
+		ForecastDisplay fDisplay = new ForecastDisplay(weatherData);
+		
+		weatherData.setMeasurements(80, 65, 30.4F);
+		weatherData.setMeasurements(82, 70, 29.2F);
+		weatherData.setMeasurements(78, 90, 29.2F);
 	}
 	
 	
